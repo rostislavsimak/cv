@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rostislav Simak — Curriculum Vitae</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #1a2332;
+            --accent: #2563eb;
+            --text: #374151;
+            --text-light: #6b7280;
+            --border: #e5e7eb;
+            --bg: #ffffff;
+            --bg-subtle: #f9fafb;
+        }
+
+        body {
+            font-family: 'Work Sans', sans-serif;
+            color: var(--text);
+            background: var(--bg);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+            animation: fadeIn 0.6s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        header {
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 2rem;
+            margin-bottom: 2.5rem;
+        }
+
+        h1 {
+            font-family: 'Crimson Pro', serif;
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.02em;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin-top: 1rem;
+            font-size: 0.95rem;
+            color: var(--text-light);
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .contact-item::before {
+            content: "•";
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        .section {
+            margin-bottom: 2.5rem;
+            animation: slideUp 0.6s ease-out backwards;
+        }
+
+        .section:nth-child(2) { animation-delay: 0.1s; }
+        .section:nth-child(3) { animation-delay: 0.2s; }
+        .section:nth-child(4) { animation-delay: 0.3s; }
+        .section:nth-child(5) { animation-delay: 0.4s; }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h2 {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 1.25rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--accent);
+            display: inline-block;
+        }
+
+        .profile-text {
+            background: var(--bg-subtle);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 3px solid var(--accent);
+            line-height: 1.7;
+        }
+
+        .experience-item,
+        .education-item {
+            margin-bottom: 2rem;
+            padding-left: 1.5rem;
+            border-left: 2px solid var(--border);
+            position: relative;
+        }
+
+        .experience-item::before,
+        .education-item::before {
+            content: "";
+            position: absolute;
+            left: -6px;
+            top: 4px;
+            width: 10px;
+            height: 10px;
+            background: var(--accent);
+            border-radius: 50%;
+        }
+
+        h3 {
+            font-family: 'Work Sans', sans-serif;
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 0.25rem;
+        }
+
+        .meta {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin-bottom: 0.75rem;
+            font-weight: 500;
+        }
+
+        .description {
+            color: var(--text);
+            line-height: 1.7;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .skill-category {
+            background: var(--bg-subtle);
+            padding: 1.25rem;
+            border-radius: 8px;
+            border-top: 3px solid var(--accent);
+        }
+
+        .skill-category h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 0.75rem;
+        }
+
+        .skill-list {
+            color: var(--text);
+            line-height: 1.8;
+        }
+
+        .language-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        .language-item {
+            background: var(--bg-subtle);
+            padding: 1rem;
+            border-radius: 8px;
+        }
+
+        .language-name {
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .language-level {
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        .badge {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            margin-top: 0.5rem;
+        }
+
+        footer {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--text-light);
+        }
+
+        @media (max-width: 640px) {
+            .container {
+                padding: 1.5rem 1rem;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.25rem;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .skills-grid,
+            .language-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media print {
+            body {
+                background: white;
+            }
+
+            .container {
+                max-width: none;
+                padding: 0;
+            }
+
+            .section {
+                animation: none;
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Rostislav Simak</h1>
+            <div class="contact-info">
+                <div class="contact-item">Via Marsala 18, 37045 Legnago (VR)</div>
+                <div class="contact-item">+39 331 235 9619</div>
+                <div class="contact-item">rostislav.simak@gmail.com</div>
+            </div>
+            <div class="contact-info" style="margin-top: 0.5rem;">
+                <div class="contact-item">Nato il 01/05/2003</div>
+                <div class="contact-item">Nazionalità Italiana</div>
+            </div>
+        </header>
+
+        <section class="section">
+            <h2>Profilo Personale</h2>
+            <div class="profile-text">
+                Laureato in Ingegneria Gestionale presso l'Università degli Studi di Padova, con esperienza pratica in pianificazione della produzione, gestione delle scorte e ottimizzazione logistica. Ho partecipato a progetti di simulazione aziendale sviluppando competenze in strategia, marketing, finanza e logistica. Abile nel problem solving, nel lavoro di squadra e nell'analisi decisionale per migliorare le performance aziendali in contesti dinamici. Appassionato di tecnologia e innovazione digitale, con particolare interesse per le applicazioni dell'intelligenza artificiale in ambito gestionale.
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Istruzione e Formazione</h2>
+            
+            <div class="education-item">
+                <h3>Laurea magistrale in Management Engineering</h3>
+                <div class="meta">Università degli Studi di Padova • 2025 – in corso</div>
+                <div class="description">
+                    Strategy and Digital Transformation, Management Engineering, Innovation Management
+                </div>
+            </div>
+
+            <div class="education-item">
+                <h3>Laurea triennale in Ingegneria Gestionale</h3>
+                <div class="meta">Università degli Studi di Padova • 2022 – 2025</div>
+                <div class="description">
+                    Supply Chain Management, Pianificazione della produzione, Gestione delle scorte, Analisi decisionale, Ricerca operativa, Economia aziendale
+                </div>
+            </div>
+
+            <div class="education-item">
+                <h3>Diploma di scuola superiore – Liceo Scienze Applicate</h3>
+                <div class="meta">Federico Quercia / Giovanni Cotta, Legnago (VR) • 2017 – 2022</div>
+                <div class="description">
+                    Scienze applicate, matematica, fisica, informatica, scienze naturali
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Esperienza Lavorativa</h2>
+            
+            <div class="experience-item">
+                <h3>Cameriere di sala</h3>
+                <div class="meta">Settore Ristorazione, Legnago (VR) • 2021 – 2022</div>
+                <div class="description">
+                    Gestione dei clienti in sala, presa degli ordini, servizio ai tavoli. Ottime capacità comunicative e di relazione con il cliente, forte senso dell'organizzazione e del lavoro di squadra. Gestione di situazioni dinamiche con precisione, cortesia e attenzione ai dettagli.
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Progetti</h2>
+            
+            <div class="experience-item">
+                <h3>Simulazione di Ingegneria d'Impresa (Business Game)</h3>
+                <div class="meta">Università degli Studi di Padova • 2024 – 2025</div>
+                <div class="description">
+                    Partecipazione a simulazione aziendale con responsabilità in strategia, produzione, marketing, logistica e finanza. Sviluppo di competenze in problem solving, decision making, pensiero strategico, analisi e lavoro di squadra.
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Competenze</h2>
+            
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h4>Competenze Professionali</h4>
+                    <div class="skill-list">
+                        Supply Chain Management<br>
+                        Pianificazione della produzione<br>
+                        Gestione delle scorte<br>
+                        Analisi decisionale<br>
+                        Pensiero strategico
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h4>Competenze Digitali</h4>
+                    <div class="skill-list">
+                        Microsoft Office (avanzato)<br>
+                        Google Workspace<br>
+                        Intelligenza Artificiale<br>
+                        ChatGPT, Claude, Copilot<br>
+                        Consapevolezza AI strategica
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h4>Soft Skills</h4>
+                    <div class="skill-list">
+                        Comunicazione efficace<br>
+                        Lavoro di squadra<br>
+                        Problem solving<br>
+                        Organizzazione<br>
+                        Adattabilità
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Lingue</h2>
+            
+            <div class="language-grid">
+                <div class="language-item">
+                    <div class="language-name">Italiano</div>
+                    <div class="language-level">Madrelingua</div>
+                </div>
+
+                <div class="language-item">
+                    <div class="language-name">Inglese</div>
+                    <div class="language-level">Livello B2</div>
+                    <span class="badge">Certificato</span>
+                </div>
+
+                <div class="language-item">
+                    <div class="language-name">Ucraino / Russo</div>
+                    <div class="language-level">Livello B2 (orale), A1 (scritto)</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Informazioni Aggiuntive</h2>
+            
+            <div class="experience-item">
+                <div class="description">
+                    <strong>Certificazioni:</strong> English B2, Soft Skills per lo sviluppo personale e professionale<br>
+                    <strong>Patente di guida:</strong> B<br>
+                    <strong>Consenso al trattamento dei dati personali:</strong> I hereby authorize the use of my personal data in accordance to the GDPR 679/16 - "European regulation on the protection of personal data"
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            Curriculum Vitae — Rostislav Simak — Aggiornato al 15/04/2026
+        </footer>
+    </div>
+</body>
+</html>
